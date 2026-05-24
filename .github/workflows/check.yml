@@ -31,3 +31,18 @@ jobs:
         node-version: [20, 22]
 
     continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install deps
+        run: npm install
+
+      - name: Build
+        run: npm run docs:build
