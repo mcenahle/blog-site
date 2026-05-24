@@ -21,14 +21,14 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run docs:build
+        run: npm run build
 
   compatibility:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [20, 22]
+        node-version: [20, 22, 24]
 
     continue-on-error: true
 
@@ -45,4 +45,4 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run docs:build
+        run: npm run build
